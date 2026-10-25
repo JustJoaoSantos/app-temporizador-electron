@@ -3,4 +3,7 @@ footer {
     max-height: 28px;
     text-align: right;
     margin-top: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }

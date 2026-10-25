@@ -8,10 +8,8 @@ import './App.css'
 import Navbar from './components/Navbar.tsx'
 import Home  from './pages/Home.tsx'
 import Timer from './pages/Timer.tsx'
-import Footer from './components/Footer.tsx'
 
 function App() {
-  //const [count, setCount] = useState(0)
 
   return (
       <BrowserRouter>
@@ -21,8 +19,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Timer" element={<Timer />} />
         </Routes>
-
-        <Footer />
         
       </BrowserRouter>
   )

@@ -1,17 +1,14 @@
 
-import { useLocation } from 'react-router'
 import { useEffect, useState } from 'react';
+import { getLocalStorage } from '../components/useLocalStorage';
 import './Timer.css'
 
 function Timer() {
-    const location = useLocation();
-    const dataForm = location.state;
-    const [msg, setMsg] = useState(dataForm.get('msg-display'));
+    const [msg, setMsg] = useState(getLocalStorage("msgDisplay", ""));
     const [timer, setTimer] = useState('00:00');
 
-
     // converte data inserida por usuario em um valor calculavel
-    let [hours, minutes] = dataForm.get('target-time').split(':');
+    let [hours, minutes] = getLocalStorage("targetTime", "12:00").split(':');
     let target_date = new Date()
     target_date.setHours(hours);
     target_date.setMinutes(minutes);
@@ -29,7 +26,7 @@ function Timer() {
 
             // se o tempo já atingiu zero, a mensagem será alterada para msg de timeout e o timer para zero.
             if (distance < 0) {
-                setMsg(dataForm.get('msg-timeout'));
+                setMsg(getLocalStorage("msgTimeout", ""));
                 setTimer('00:00');
 
             } else {
